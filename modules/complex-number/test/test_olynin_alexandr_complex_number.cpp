@@ -93,17 +93,6 @@ TEST(Olynin_Alexandr_ComplexNumberTest, Operator_Diff_Correct) {
     EXPECT_DOUBLE_EQ(1.2, res.getIm());
 }
 
-TEST(Olynin_Alexandr_ComplexNumberTest, Operator_Div_Correct) {
-    ComplexNumber num_1(1.1, 2.5);
-    ComplexNumber num_2(4.3, 3.7);
-    ComplexNumber res;
-
-    res = num_1 / num_2;
-
-    EXPECT_DOUBLE_EQ(-4.52, res.getRe());
-    EXPECT_DOUBLE_EQ(14.82, res.getIm());
-}
-
 TEST(Olynin_Alexandr_ComplexNumberTest, Operator_Is_Equal_Correct) {
     ComplexNumber num_1(5.5, 6.0);
     ComplexNumber num_2;
