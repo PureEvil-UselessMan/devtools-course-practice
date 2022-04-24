@@ -21,3 +21,27 @@ Plane& Plane::operator=(const Plane& Tmp) {
     this->d = Tmp.d;
     return *this;
 }
+
+void Space::calculate_params(Line Sline, Plane Splane,
+                      double* numerator, double* denominator) {
+        *numerator = Splane.GetD() + Splane.GetA() * Sline.GetX_1() +
+                      Splane.GetB() * Sline.GetY_1() +
+                      Splane.GetC() * Sline.GetZ_1();
+        *denominator = Splane.GetA() * Sline.GetA_x() +
+                      Splane.GetB() * Sline.GetA_y() +
+                      Splane.GetC() * Sline.GetA_z();
+    }
+
+int Space::Relationship(Line Sline, Plane Splane) {
+    double numerator, denominator;
+    calculate_params(Sline, Splane, &numerator, &denominator);
+    if (denominator == 0) {
+        if (numerator == 0) {
+            return 2;
+        } else {
+            return 0;
+        }
+    } else {
+        return 1;
+    }
+}

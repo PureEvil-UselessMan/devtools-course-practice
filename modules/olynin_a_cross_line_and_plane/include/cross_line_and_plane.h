@@ -49,6 +49,13 @@ class Plane {
     void SetD(double td) { this->d = td; }
 };
 
+class Space {
+ protected:
+    void calculate_params(Line Sline, Plane Splane,
+                          double* numerator, double* denominator);
+
+ public:
+    int Relationship(Line Sline, Plane Splane);
+};
 
 #endif  // MODULES_OLYNIN_A_CROSS_LINE_AND_PLANE_INCLUDE_CROSS_LINE_AND_PLANE_H_
-

@@ -140,3 +140,24 @@ TEST(Class_Plane, Operator_set_d_correct) {
     a.SetD(1.2);
     EXPECT_EQ(a.GetD(), 1.2);
 }
+
+TEST(Class_Space, Relationship_intersection) {
+    Space My_Space;
+    Line AB(1, 2, 3, 5, 2, 3);
+    Plane a(2, 3, -1, 1);
+    EXPECT_EQ(My_Space.Relationship(AB, a), 1);
+}
+
+TEST(Class_Space, Relationship_parallel) {
+    Space My_Space;
+    Line AB(1, -2, 2, 2, 3, -4);
+    Plane a(1, 6, 5, 4);
+    EXPECT_EQ(My_Space.Relationship(AB, a), 0);
+}
+
+TEST(Class_Space, Relationship_line_lies_on_the_plane) {
+   Space My_Space;
+   Line AB(-4, -2, 0, 9, -2, -12);
+   Plane a(2, -3, 2, 2);
+   EXPECT_EQ(My_Space.Relationship(AB, a), 2);
+}
