@@ -9,7 +9,7 @@ class Line {
     double a_x, a_y, a_z;
 
  public:
-    Line(double tx_1 = 0.0, double ty_1 = 0.0, double tz_1 = 0.0,
+    explicit Line(double tx_1 = 0.0, double ty_1 = 0.0, double tz_1 = 0.0,
          double ta_x = 1.0, double ta_y = 1.0, double ta_z = 1.0):
         x_1(tx_1), y_1(ty_1), z_1(tz_1), a_x(ta_x), a_y(ta_y), a_z(ta_z) {}
     Line(const Line& Tmp) : x_1(Tmp.x_1), y_1(Tmp.y_1), z_1(Tmp.z_1),
@@ -34,7 +34,7 @@ class Plane {
     double a, b, c, d;
 
  public:
-    Plane(double ta = 1, double tb = 1, double tc = 1, double td = 1):
+    explicit Plane(double ta = 1, double tb = 1, double tc = 1, double td = 1):
           a(ta), b(tb), c(tc), d(td) {}
     Plane(const Plane& Tmp): a(Tmp.a), b(Tmp.b),
                              c(Tmp.c), d(Tmp.d) {}
