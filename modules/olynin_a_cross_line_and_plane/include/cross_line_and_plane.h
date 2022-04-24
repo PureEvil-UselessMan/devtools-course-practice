@@ -38,6 +38,7 @@ class Plane {
           a(ta), b(tb), c(tc), d(td) {}
     Plane(const Plane& Tmp): a(Tmp.a), b(Tmp.b),
                              c(Tmp.c), d(Tmp.d) {}
+    Plane& operator=(const Plane& Tmp);
 };
 
 

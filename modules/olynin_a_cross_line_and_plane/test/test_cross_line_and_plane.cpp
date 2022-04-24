@@ -91,3 +91,8 @@ TEST(Class_Plane, Copy_constructor_no_throw) {
     Plane a(2.1, 0.3, 1.1, 4.0);
     EXPECT_NO_THROW(Plane b(a));
 }
+
+TEST(Class_Plane, Copy_operator_equal_no_throw) {
+    Plane a(2.1, 0.3, 1.1, 4.0);
+    EXPECT_NO_THROW(Plane b = a);
+}

@@ -13,3 +13,11 @@ Line& Line::operator=(const Line& Tmp) {
     this->a_z = Tmp.a_z;
     return *this;
 }
+
+Plane& Plane::operator=(const Plane& Tmp) {
+    this->a = Tmp.a;
+    this->b = Tmp.b;
+    this->c = Tmp.c;
+    this->d = Tmp.d;
+    return *this;
+}
