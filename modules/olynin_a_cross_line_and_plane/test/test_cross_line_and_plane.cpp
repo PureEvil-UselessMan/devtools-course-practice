@@ -211,3 +211,17 @@ TEST(Class_Space, Is_perpendicular_false_cause_parallel) {
     Plane a(1, 6, 5, 4);
     EXPECT_FALSE(My_Space.IsPerpendicular(AB, a));
 }
+
+TEST(Class_Space, Is_oblique_true) {
+    Space My_Space;
+    Line AB(-3, 0, -2, -1, -3, 3);
+    Plane a(1, -2, -1, 3);
+    EXPECT_TRUE(My_Space.IsOblique(AB, a));
+}
+
+TEST(Class_Space, Is_oblique_false_cause_parallel) {
+    Space My_Space;
+    Line AB(1, -2, 2, 2, 3, -4);
+    Plane a(1, 6, 5, 4);
+    EXPECT_FALSE(My_Space.IsOblique(AB, a));
+}

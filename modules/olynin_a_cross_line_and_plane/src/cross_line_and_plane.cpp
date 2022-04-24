@@ -81,3 +81,11 @@ bool Space::IsPerpendicular(Line Sline, Plane Splane) {
         return false;
     }
 }
+
+bool Space::IsOblique(Line Sline, Plane Splane) {
+    if (Relationship(Sline, Splane) == 1) {
+        return !IsPerpendicular(Sline, Splane);
+    } else {
+        return false;
+    }
+}
