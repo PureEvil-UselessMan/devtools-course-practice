@@ -60,7 +60,7 @@ class Space {
                                 double* common_x,
                                 double* common_y,
                                 double* common_z);
-    bool Space::IsPerpendicular(Line Sline, Plane Splane);
+    bool IsPerpendicular(Line Sline, Plane Splane);
     bool IsOblique(Line Sline, Plane Splane);
 };
 
