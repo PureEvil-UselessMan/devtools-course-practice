@@ -67,8 +67,8 @@ void Space::GetPointOfIntersection(Line Sline, Plane Splane,
 }
 
 bool Space::IsPerpendicular(Line Sline, Plane Splane) {
-    double accuracy = 0.000001;
     if (Relationship(Sline, Splane) == 1) {
+        double accuracy = 0.000001;
         if ((Sline.GetA_x() / Splane.GetA()) -
             (Sline.GetA_y() / Splane.GetB()) < accuracy &&
             (Sline.GetA_x() / Splane.GetA()) -
