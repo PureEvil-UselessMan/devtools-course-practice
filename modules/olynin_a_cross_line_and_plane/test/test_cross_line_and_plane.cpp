@@ -43,21 +43,21 @@ TEST(Class_Line, Operator_get_a_x_correct) {
     Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
     double a_x;
     a_x = AB.GetA_x();
-    EXPECT_EQ(AB.GetA_x(), 1.0);
+    EXPECT_EQ(a_x, 1.0);
 }
 
 TEST(Class_Line, Operator_get_a_y_correct) {
     Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
     double a_y;
     a_y = AB.GetA_y();
-    EXPECT_EQ(AB.GetA_y(), 0.0);
+    EXPECT_EQ(a_y, 0.0);
 }
 
 TEST(Class_Line, Operator_get_a_z_correct) {
     Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
     double a_z;
     a_z = AB.GetA_y();
-    EXPECT_EQ(AB.GetA_z(), 3.3);
+    EXPECT_EQ(a_z, 3.3);
 }
 
 TEST(Class_Line, Copy_constructor_x_1_correct) {
@@ -171,14 +171,14 @@ TEST(Class_Plane, Operator_get_c_correct) {
     Plane a(2.1, 0.3, 1.1, 4.0);
     double c1;
     c1 = a.GetC();
-    EXPECT_EQ(a.GetC(), 1.1);
+    EXPECT_EQ(c1, 1.1);
 }
 
 TEST(Class_Plane, Operator_get_d_correct) {
     Plane a(2.1, 0.3, 1.1, 4.0);
     double d1;
     d1 = a.GetD();
-    EXPECT_EQ(a.GetD(), 4.0);
+    EXPECT_EQ(d1, 4.0);
 }
 
 TEST(Class_Plane, Copy_constructor_a_correct) {

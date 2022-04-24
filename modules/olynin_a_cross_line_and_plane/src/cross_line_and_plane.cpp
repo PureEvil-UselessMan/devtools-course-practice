@@ -135,8 +135,9 @@ bool Space::IsPerpendicular(Line Sline, Plane Splane) {
             }
         }
     } else {
-            return false;
+        return false;
     }
+    return false;
 }
 
 bool Space::IsOblique(Line Sline, Plane Splane) {
