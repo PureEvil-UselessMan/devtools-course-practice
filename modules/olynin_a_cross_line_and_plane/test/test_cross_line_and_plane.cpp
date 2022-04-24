@@ -116,3 +116,27 @@ TEST(Class_Plane, Operator_get_d_correct) {
     Plane a(2.1, 0.3, 1.1, 4.0);
     EXPECT_EQ(a.GetD(), 4.0);
 }
+
+TEST(Class_Plane, Operator_set_a_correct) {
+    Plane a(2.1, 0.3, 1.1, 4.0);
+    a.SetA(1.0);
+    EXPECT_EQ(a.GetA(), 1.0);
+}
+
+TEST(Class_Plane, Operator_set_b_correct) {
+    Plane a(2.1, 0.3, 1.1, 4.0);
+    a.SetB(3.1);
+    EXPECT_EQ(a.GetB(), 3.1);
+}
+
+TEST(Class_Plane, Operator_set_c_correct) {
+    Plane a(2.1, 0.3, 1.1, 4.0);
+    a.SetC(0.2);
+    EXPECT_EQ(a.GetC(), 0.2);
+}
+
+TEST(Class_Plane, Operator_set_d_correct) {
+    Plane a(2.1, 0.3, 1.1, 4.0);
+    a.SetD(1.2);
+    EXPECT_EQ(a.GetD(), 1.2);
+}

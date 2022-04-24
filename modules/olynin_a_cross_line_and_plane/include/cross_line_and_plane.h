@@ -43,6 +43,10 @@ class Plane {
     double GetB() { return this->b; }
     double GetC() { return this->c; }
     double GetD() { return this->d; }
+    void SetA(double ta) { this->a = ta; }
+    void SetB(double tb) { this->b = tb; }
+    void SetC(double tc) { this->c = tc; }
+    void SetD(double td) { this->d = td; }
 };
 
 
