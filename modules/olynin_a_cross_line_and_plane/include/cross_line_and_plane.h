@@ -15,7 +15,12 @@ class Line {
     Line(const Line& Tmp) : x_1(Tmp.x_1), y_1(Tmp.y_1), z_1(Tmp.z_1),
         a_x(Tmp.a_x), a_y(Tmp.a_y), a_z(Tmp.a_z) {}
     Line& operator=(const Line& Tmp);
-
+    float GetX_1() { return this->x_1; }
+    float GetY_1() { return this->y_1; }
+    float GetZ_1() { return this->z_1; }
+    float GetA_x() { return this->a_x; }
+    float GetA_y() { return this->a_y; }
+    float GetA_z() { return this->a_z; }
 };
 
 
