@@ -30,7 +30,7 @@ void Space::calculate_params(Line Sline, Plane Splane,
         *denominator = Splane.GetA() * Sline.GetA_x() +
                       Splane.GetB() * Sline.GetA_y() +
                       Splane.GetC() * Sline.GetA_z();
-    }
+}
 
 int Space::Relationship(Line Sline, Plane Splane) {
     double numerator, denominator;
@@ -64,4 +64,20 @@ void Space::GetPointOfIntersection(Line Sline, Plane Splane,
         *common_x = Sline.GetX_1() + Sline.GetA_x() * t;
         *common_y = Sline.GetY_1() + Sline.GetA_y() * t;
         *common_z = Sline.GetZ_1() + Sline.GetA_z() * t;
+}
+
+bool Space::IsPerpendicular(Line Sline, Plane Splane) {
+    double accuracy = 0.000001;
+    if (Relationship(Sline, Splane) == 1) {
+        if ((Sline.GetA_x() / Splane.GetA()) -
+            (Sline.GetA_y() / Splane.GetB()) < accuracy &&
+            (Sline.GetA_x() / Splane.GetA()) -
+            (Sline.GetA_z() / Splane.GetC()) < accuracy) {
+                return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
     }
+}

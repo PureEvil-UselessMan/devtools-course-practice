@@ -190,3 +190,24 @@ TEST(Class_Space, Relationship_point_of_intersection_throw_type_two) {
     EXPECT_ANY_THROW(My_Space.GetPointOfIntersection(AB, a,
                      &x_common, &y_common, &z_common));
 }
+
+TEST(Class_Space, Is_perpendicular_true) {
+    Space My_Space;
+    Line AB(-1, 0, 2, 4, -6, 4);
+    Plane a(2, -3, 2, 2);
+    EXPECT_TRUE(My_Space.IsPerpendicular(AB, a));
+}
+
+TEST(Class_Space, Is_perpendicular_false_cause_oblique) {
+    Space My_Space;
+    Line AB(-3, 0, -2, -1, -3, 3);
+    Plane a(1, -2, -1, 3);
+    EXPECT_FALSE(My_Space.IsPerpendicular(AB, a));
+}
+
+TEST(Class_Space, Is_perpendicular_false_cause_parallel) {
+    Space My_Space;
+    Line AB(1, -2, 2, 2, 3, -4);
+    Plane a(1, 6, 5, 4);
+    EXPECT_FALSE(My_Space.IsPerpendicular(AB, a));
+}

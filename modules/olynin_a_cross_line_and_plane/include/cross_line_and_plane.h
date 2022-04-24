@@ -60,6 +60,7 @@ class Space {
                                 double* common_x,
                                 double* common_y,
                                 double* common_z);
+    bool Space::IsPerpendicular(Line Sline, Plane Splane);
 };
 
 #endif  // MODULES_OLYNIN_A_CROSS_LINE_AND_PLANE_INCLUDE_CROSS_LINE_AND_PLANE_H_
