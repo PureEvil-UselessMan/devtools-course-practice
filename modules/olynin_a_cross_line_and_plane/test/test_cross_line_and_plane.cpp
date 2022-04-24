@@ -14,7 +14,8 @@ TEST(Class_Line, Copy_constructor_no_throw) {
 
 TEST(Class_Line, Operator_equal_no_throw) {
     Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
-    EXPECT_NO_THROW(Line CD = AB);
+    Line CD;
+    EXPECT_NO_THROW(CD = AB);
 }
 
 TEST(Class_Line, Operator_get_x_1_correct) {
@@ -94,7 +95,8 @@ TEST(Class_Plane, Copy_constructor_no_throw) {
 
 TEST(Class_Plane, Copy_operator_equal_no_throw) {
     Plane a(2.1, 0.3, 1.1, 4.0);
-    EXPECT_NO_THROW(Plane b = a);
+    Plane b;
+    EXPECT_NO_THROW(b = a);
 }
 
 TEST(Class_Plane, Operator_get_a_correct) {
