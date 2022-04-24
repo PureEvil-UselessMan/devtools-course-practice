@@ -21,6 +21,12 @@ class Line {
     float GetA_x() { return this->a_x; }
     float GetA_y() { return this->a_y; }
     float GetA_z() { return this->a_z; }
+    void SetX_1(float tx_1) { this->x_1 = tx_1; }
+    void SetY_1(float ty_1) { this->y_1 = ty_1; }
+    void SetZ_1(float tz_1) { this->z_1 = tz_1; }
+    void SetA_x(float ta_x) { this->a_x = ta_x; }
+    void SetA_y(float ta_y) { this->a_y = ta_y; }
+    void SetA_z(float ta_z) { this->a_z = ta_z; }
 };
 
 

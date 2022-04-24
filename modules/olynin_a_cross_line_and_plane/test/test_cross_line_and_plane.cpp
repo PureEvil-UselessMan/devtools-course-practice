@@ -46,3 +46,39 @@ TEST(Class_Line, Operator_get_a_z_correct) {
     Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
     EXPECT_EQ(AB.GetA_z(), 3.3);
 }
+
+TEST(Class_Line, Operator_set_x_1_correct) {
+    Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
+    AB.SetX_1(2.2);
+    EXPECT_EQ(AB.GetX_1(), 2.2);
+}
+
+TEST(Class_Line, Operator_set_y_1_correct) {
+    Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
+    AB.SetY_1(3.0);
+    EXPECT_EQ(AB.GetY_1(), 3.0);
+}
+
+TEST(Class_Line, Operator_set_z_1_correct) {
+    Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
+    AB.SetZ_1(5.1);
+    EXPECT_EQ(AB.GetZ_1(), 5.1);
+}
+
+TEST(Class_Line, Operator_set_a_x_correct) {
+    Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
+    AB.SetA_x(2.1);
+    EXPECT_EQ(AB.GetA_x(), 2.1);
+}
+
+TEST(Class_Line, Operator_set_a_y_correct) {
+    Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
+    AB.SetA_y(0.2);
+    EXPECT_EQ(AB.GetA_y(), 0.2);
+}
+
+TEST(Class_Line, Operator_set_a_z_correct) {
+    Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
+    AB.SetA_z(0.0);
+    EXPECT_EQ(AB.GetA_z(), 0.0);
+}
