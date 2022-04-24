@@ -14,6 +14,8 @@ class Line {
         x_1(tx_1), y_1(ty_1), z_1(tz_1), a_x(ta_x), a_y(ta_y), a_z(ta_z) {}
     Line(const Line& Tmp) : x_1(Tmp.x_1), y_1(Tmp.y_1), z_1(Tmp.z_1),
         a_x(Tmp.a_x), a_y(Tmp.a_y), a_z(Tmp.a_z) {}
+    Line& operator=(const Line& Tmp);
+
 };
 
 
