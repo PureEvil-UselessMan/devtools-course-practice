@@ -56,6 +56,10 @@ class Space {
 
  public:
     int Relationship(Line Sline, Plane Splane);
+    void GetPointOfIntersection(Line Sline, Plane Splane,
+                                double* common_x,
+                                double* common_y,
+                                double* common_z);
 };
 
 #endif  // MODULES_OLYNIN_A_CROSS_LINE_AND_PLANE_INCLUDE_CROSS_LINE_AND_PLANE_H_

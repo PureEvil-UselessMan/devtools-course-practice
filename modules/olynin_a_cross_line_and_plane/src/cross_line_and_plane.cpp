@@ -45,3 +45,23 @@ int Space::Relationship(Line Sline, Plane Splane) {
         return 1;
     }
 }
+
+void Space::GetPointOfIntersection(Line Sline, Plane Splane,
+                                double* common_x,
+                                double* common_y,
+                                double* common_z) {
+        int relation = Relationship(Sline, Splane);
+        if (relation == 0) {
+            const std::string error_type("Line doesn't intersect the Plane");
+            throw error_type;
+        } else if (relation == 2) {
+            const std::string error_type("The Line lies on the Plane");
+            throw error_type;
+        }
+        double numerator, denomirator;
+        calculate_params(Sline, Splane, &numerator, &denomirator);
+        double t = - numerator / denomirator;
+        *common_x = Sline.GetX_1() + Sline.GetA_x() * t;
+        *common_y = Sline.GetY_1() + Sline.GetA_y() * t;
+        *common_z = Sline.GetZ_1() + Sline.GetA_z() * t;
+    }

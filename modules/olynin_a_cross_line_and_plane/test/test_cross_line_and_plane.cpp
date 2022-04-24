@@ -156,8 +156,37 @@ TEST(Class_Space, Relationship_parallel) {
 }
 
 TEST(Class_Space, Relationship_line_lies_on_the_plane) {
-   Space My_Space;
-   Line AB(-4, -2, 0, 9, -2, -12);
-   Plane a(2, -3, 2, 2);
-   EXPECT_EQ(My_Space.Relationship(AB, a), 2);
+    Space My_Space;
+    Line AB(-4, -2, 0, 9, -2, -12);
+    Plane a(2, -3, 2, 2);
+    EXPECT_EQ(My_Space.Relationship(AB, a), 2);
+}
+
+TEST(Class_Space, Relationship_get_point_of_intersection) {
+    Space My_Space;
+    Line AB(-3, 0, -2, -1, -3, 3);
+    Plane a(1, -2, -1, 3);
+    double x_common, y_common, z_common;
+    My_Space.GetPointOfIntersection(AB, a, &x_common, &y_common, &z_common);
+    EXPECT_EQ(x_common, -2);
+    EXPECT_EQ(y_common, 3);
+    EXPECT_EQ(z_common, -5);
+}
+
+TEST(Class_Space, Relationship_point_of_intersection_throw_type_one) {
+    Space My_Space;
+    Line AB(1, -2, 2, 2, 3, -4);
+    Plane a(1, 6, 5, 4);
+    double x_common, y_common, z_common;
+    EXPECT_ANY_THROW(My_Space.GetPointOfIntersection(AB, a,
+                     &x_common, &y_common, &z_common));
+}
+
+TEST(Class_Space, Relationship_point_of_intersection_throw_type_two) {
+    Space My_Space;
+    Line AB(-4, -2, 0, 9, -2, -12);
+    Plane a(2, -3, 2, 2);
+    double x_common, y_common, z_common;
+    EXPECT_ANY_THROW(My_Space.GetPointOfIntersection(AB, a,
+                     &x_common, &y_common, &z_common));
 }
