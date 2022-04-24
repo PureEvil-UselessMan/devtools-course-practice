@@ -20,32 +20,86 @@ TEST(Class_Line, Operator_equal_no_throw) {
 
 TEST(Class_Line, Operator_get_x_1_correct) {
     Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
-    EXPECT_EQ(AB.GetX_1(), 1.1);
+    double x_1;
+    x_1 = AB.GetX_1();
+    EXPECT_EQ(x_1, 1.1);
 }
 
 TEST(Class_Line, Operator_get_y_1_correct) {
     Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
-    EXPECT_EQ(AB.GetY_1(), 3.2);
+    double y_1;
+    y_1 = AB.GetY_1();
+    EXPECT_EQ(y_1, 3.2);
 }
 
 TEST(Class_Line, Operator_get_z_1_correct) {
     Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
-    EXPECT_EQ(AB.GetZ_1(), 2.0);
+    double z_1;
+    z_1 = AB.GetZ_1();
+    EXPECT_EQ(z_1, 2.0);
 }
 
 TEST(Class_Line, Operator_get_a_x_correct) {
     Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
+    double a_x;
+    a_x = AB.GetA_x();
     EXPECT_EQ(AB.GetA_x(), 1.0);
 }
 
 TEST(Class_Line, Operator_get_a_y_correct) {
     Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
+    double a_y;
+    a_y = AB.GetA_y();
     EXPECT_EQ(AB.GetA_y(), 0.0);
 }
 
 TEST(Class_Line, Operator_get_a_z_correct) {
     Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
+    double a_z;
+    a_z = AB.GetA_y();
     EXPECT_EQ(AB.GetA_z(), 3.3);
+}
+
+TEST(Class_Line, Copy_constructor_x_1_correct) {
+    Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
+    Line CD(AB);
+    double x_1 = CD.GetX_1();
+    EXPECT_EQ(x_1, 1.1);
+}
+
+TEST(Class_Line, Copy_constructor_y_1_correct) {
+    Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
+    Line CD(AB);
+    double y_1 = CD.GetY_1();
+    EXPECT_EQ(y_1, 3.2);
+}
+
+TEST(Class_Line, Copy_constructor_z_1_correct) {
+    Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
+    Line CD(AB);
+    double z_1 = CD.GetZ_1();
+    EXPECT_EQ(z_1, 2.0);
+}
+
+TEST(Class_Line, Copy_constructor_a_x_correct) {
+    Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
+    Line CD(AB);
+    double a_x = CD.GetA_x();
+    EXPECT_EQ(a_x, 1.0);
+}
+
+TEST(Class_Line, Copy_constructor_a_y_correct) {
+    Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
+    Line CD(AB);
+    double a_y = CD.GetA_y();
+    EXPECT_EQ(a_y, 0.0);
+}
+
+TEST(Class_Line, Copy_constructor_a_z_correct) {
+    Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
+    Line CD(AB);
+    double a_z = CD.GetA_z();
+    EXPECT_EQ(a_z, 3.3);
 }
 
 TEST(Class_Line, Operator_set_x_1_correct) {
@@ -101,22 +155,62 @@ TEST(Class_Plane, Copy_operator_equal_no_throw) {
 
 TEST(Class_Plane, Operator_get_a_correct) {
     Plane a(2.1, 0.3, 1.1, 4.0);
-    EXPECT_EQ(a.GetA(), 2.1);
+    double a1;
+    a1 = a.GetA();
+    EXPECT_EQ(a1, 2.1);
 }
 
 TEST(Class_Plane, Operator_get_b_correct) {
     Plane a(2.1, 0.3, 1.1, 4.0);
-    EXPECT_EQ(a.GetB(), 0.3);
+    double b1;
+    b1 = a.GetB();
+    EXPECT_EQ(b1, 0.3);
 }
 
 TEST(Class_Plane, Operator_get_c_correct) {
     Plane a(2.1, 0.3, 1.1, 4.0);
+    double c1;
+    c1 = a.GetC();
     EXPECT_EQ(a.GetC(), 1.1);
 }
 
 TEST(Class_Plane, Operator_get_d_correct) {
     Plane a(2.1, 0.3, 1.1, 4.0);
+    double d1;
+    d1 = a.GetD();
     EXPECT_EQ(a.GetD(), 4.0);
+}
+
+TEST(Class_Plane, Copy_constructor_a_correct) {
+    Plane a(2.1, 0.3, 1.1, 4.0);
+    Plane b(a);
+    double a1;
+    a1 = b.GetA();
+    EXPECT_EQ(a1, 2.1);
+}
+
+TEST(Class_Plane, Copy_constructor_b_correct) {
+    Plane a(2.1, 0.3, 1.1, 4.0);
+    Plane b(a);
+    double b1;
+    b1 = b.GetB();
+    EXPECT_EQ(b1, 0.3);
+}
+
+TEST(Class_Plane, Copy_constructor_c_correct) {
+    Plane a(2.1, 0.3, 1.1, 4.0);
+    Plane b(a);
+    double c1;
+    c1 = b.GetC();
+    EXPECT_EQ(c1, 1.1);
+}
+
+TEST(Class_Plane, Copy_constructor_d_correct) {
+    Plane a(2.1, 0.3, 1.1, 4.0);
+    Plane b(a);
+    double d1;
+    d1 = b.GetD();
+    EXPECT_EQ(d1, 4.0);
 }
 
 TEST(Class_Plane, Operator_set_a_correct) {
@@ -226,4 +320,95 @@ TEST(Class_Space, Is_oblique_false_cause_parallel) {
     Line AB(1, -2, 2, 2, 3, -4);
     Plane a(1, 6, 5, 4);
     EXPECT_FALSE(My_Space.IsOblique(AB, a));
+}
+
+TEST(Class_Space, Is_perpendicular_not_determined) {
+    Space My_Space;
+    Line AB(1, -2, 2, 2, 3, -4);
+    Plane a(0, 0, 0, 4);
+    EXPECT_ANY_THROW(My_Space.IsPerpendicular(AB, a));
+}
+
+TEST(Class_Space, Is_perpendicular_case_0_0_1_both) {
+    Space My_Space;
+    Line AB(1, -2, 2, 0, 0, 4);
+    Plane a(0, 0, 2, 4);
+    EXPECT_TRUE(My_Space.IsPerpendicular(AB, a));
+}
+
+TEST(Class_Space, Is_perpendicular_case_0_0_1_not_both) {
+    Space My_Space;
+    Line AB(1, -2, 2, 2, 0, 4);
+    Plane a(0, 0, 2, 4);
+    EXPECT_FALSE(My_Space.IsPerpendicular(AB, a));
+}
+
+TEST(Class_Space, Is_perpendicular_case_0_1_0_both) {
+    Space My_Space;
+    Line AB(1, -2, 2, 0, 1, 0);
+    Plane a(0, -3, 0, 4);
+    EXPECT_TRUE(My_Space.IsPerpendicular(AB, a));
+}
+
+TEST(Class_Space, Is_perpendicular_case_0_1_0_not_both) {
+    Space My_Space;
+    Line AB(1, -2, 2, 2, -6, 4);
+    Plane a(0, -3, 0, 4);
+    EXPECT_FALSE(My_Space.IsPerpendicular(AB, a));
+}
+
+TEST(Class_Space, Is_perpendicular_case_1_0_0_both) {
+    Space My_Space;
+    Line AB(1, -2, 2, 1, 0, 0);
+    Plane a(2, 0, 0, 4);
+    EXPECT_TRUE(My_Space.IsPerpendicular(AB, a));
+}
+
+TEST(Class_Space, Is_perpendicular_case_1_0_0_not_both) {
+    Space My_Space;
+    Line AB(1, -2, 2, 2, 0, 4);
+    Plane a(2, 0, 0, 4);
+    EXPECT_FALSE(My_Space.IsPerpendicular(AB, a));
+}
+
+TEST(Class_Space, Is_perpendicular_case_1_1_0_both) {
+    Space My_Space;
+    Line AB(1, -2, 2, 4, -6, 0);
+    Plane a(2, -3, 0, 4);
+    EXPECT_TRUE(My_Space.IsPerpendicular(AB, a));
+}
+
+TEST(Class_Space, Is_perpendicular_case_1_1_0_not_both) {
+    Space My_Space;
+    Line AB(1, -2, 2, 2, 0, 4);
+    Plane a(2, -3, 0, 4);
+    EXPECT_FALSE(My_Space.IsPerpendicular(AB, a));
+}
+
+TEST(Class_Space, Is_perpendicular_case_1_0_1_both) {
+    Space My_Space;
+    Line AB(1, -2, 2, 4, 0, 4);
+    Plane a(2, 0, 2, 4);
+    EXPECT_TRUE(My_Space.IsPerpendicular(AB, a));
+}
+
+TEST(Class_Space, Is_perpendicular_case_1_0_1_not_both) {
+    Space My_Space;
+    Line AB(1, -2, 2, 2, -6, 4);
+    Plane a(2, 0, 2, 4);
+    EXPECT_FALSE(My_Space.IsPerpendicular(AB, a));
+}
+
+TEST(Class_Space, Is_perpendicular_case_0_1_1_both) {
+    Space My_Space;
+    Line AB(1, -2, 2, 0, -6, 4);
+    Plane a(0, -3, 2, 4);
+    EXPECT_TRUE(My_Space.IsPerpendicular(AB, a));
+}
+
+TEST(Class_Space, Is_perpendicular_case_0_1_1_not_both) {
+    Space My_Space;
+    Line AB(1, -2, 2, 2, -6, 4);
+    Plane a(0, -3, 2, 4);
+    EXPECT_FALSE(My_Space.IsPerpendicular(AB, a));
 }

@@ -67,18 +67,75 @@ void Space::GetPointOfIntersection(Line Sline, Plane Splane,
 }
 
 bool Space::IsPerpendicular(Line Sline, Plane Splane) {
+    if ((Sline.GetA_x() == 0 && Sline.GetA_y() == 0 && Sline.GetA_z() == 0) ||
+        (Splane.GetA() == 0 && Splane.GetB() == 0 && Splane.GetC() == 0)) {
+            const std::string
+                error_type("The perpendicularity can't be determined");
+            throw error_type;
+    }
+    double accuracy = 0.000001;
     if (Relationship(Sline, Splane) == 1) {
-        double accuracy = 0.000001;
-        if ((Sline.GetA_x() / Splane.GetA()) -
-            (Sline.GetA_y() / Splane.GetB()) < accuracy &&
-            (Sline.GetA_x() / Splane.GetA()) -
-            (Sline.GetA_z() / Splane.GetC()) < accuracy) {
-                return true;
+        if (Splane.GetA() == 0 || Splane.GetB() == 0 || Splane.GetC() == 0) {
+            if (Splane.GetA() == 0 && Splane.GetB() == 0) {
+                if (Sline.GetA_x() == 0 && Sline.GetA_y() == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            if (Splane.GetA() == 0 && Splane.GetC() == 0) {
+                if (Sline.GetA_x() == 0 && Sline.GetA_z() == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            if (Splane.GetB() == 0 && Splane.GetC() == 0) {
+                if (Sline.GetA_y() == 0 && Sline.GetA_z() == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            if (Splane.GetA() == 0) {
+                if (Sline.GetA_x() == 0 &&
+                (Sline.GetA_y() / Splane.GetB()) -
+                (Sline.GetA_z() / Splane.GetC()) < accuracy) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            if (Splane.GetB() == 0) {
+                if (Sline.GetA_y() == 0 &&
+                (Sline.GetA_x() / Splane.GetA()) -
+                (Sline.GetA_z() / Splane.GetC()) < accuracy) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            if (Splane.GetC() == 0) {
+                if (Sline.GetA_z() == 0 &&
+                (Sline.GetA_x() / Splane.GetA()) -
+                (Sline.GetA_y() / Splane.GetB()) < accuracy) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         } else {
-            return false;
+            if ((Sline.GetA_x() / Splane.GetA()) -
+                (Sline.GetA_y() / Splane.GetB()) < accuracy &&
+                (Sline.GetA_x() / Splane.GetA()) -
+                (Sline.GetA_z() / Splane.GetC()) < accuracy) {
+                    return true;
+            } else {
+                return false;
+            }
         }
     } else {
-        return false;
+            return false;
     }
 }
 

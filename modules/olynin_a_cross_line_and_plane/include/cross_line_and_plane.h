@@ -34,7 +34,8 @@ class Plane {
     double a, b, c, d;
 
  public:
-    explicit Plane(double ta = 1, double tb = 1, double tc = 1, double td = 1):
+    explicit Plane(double ta = 1.0, double tb = 1.0,
+                   double tc = 1.0, double td = 1.0):
           a(ta), b(tb), c(tc), d(td) {}
     Plane(const Plane& Tmp): a(Tmp.a), b(Tmp.b),
                              c(Tmp.c), d(Tmp.d) {}
