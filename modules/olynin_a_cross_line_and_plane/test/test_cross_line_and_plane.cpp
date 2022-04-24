@@ -96,3 +96,23 @@ TEST(Class_Plane, Copy_operator_equal_no_throw) {
     Plane a(2.1, 0.3, 1.1, 4.0);
     EXPECT_NO_THROW(Plane b = a);
 }
+
+TEST(Class_Plane, Operator_get_a_correct) {
+    Plane a(2.1, 0.3, 1.1, 4.0);
+    EXPECT_EQ(a.GetA(), 2.1);
+}
+
+TEST(Class_Plane, Operator_get_b_correct) {
+    Plane a(2.1, 0.3, 1.1, 4.0);
+    EXPECT_EQ(a.GetB(), 0.3);
+}
+
+TEST(Class_Plane, Operator_get_c_correct) {
+    Plane a(2.1, 0.3, 1.1, 4.0);
+    EXPECT_EQ(a.GetC(), 1.1);
+}
+
+TEST(Class_Plane, Operator_get_d_correct) {
+    Plane a(2.1, 0.3, 1.1, 4.0);
+    EXPECT_EQ(a.GetD(), 4.0);
+}

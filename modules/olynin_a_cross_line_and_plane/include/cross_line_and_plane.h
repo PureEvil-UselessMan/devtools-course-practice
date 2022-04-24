@@ -39,6 +39,10 @@ class Plane {
     Plane(const Plane& Tmp): a(Tmp.a), b(Tmp.b),
                              c(Tmp.c), d(Tmp.d) {}
     Plane& operator=(const Plane& Tmp);
+    double GetA() { return this->a; }
+    double GetB() { return this->b; }
+    double GetC() { return this->c; }
+    double GetD() { return this->d; }
 };
 
 
