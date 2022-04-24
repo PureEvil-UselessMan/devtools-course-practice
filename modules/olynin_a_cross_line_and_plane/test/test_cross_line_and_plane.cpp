@@ -56,7 +56,7 @@ TEST(Class_Line, Operator_get_a_y_correct) {
 TEST(Class_Line, Operator_get_a_z_correct) {
     Line AB(1.1, 3.2, 2.0, 1.0, 0.0, 3.3);
     double a_z;
-    a_z = AB.GetA_y();
+    a_z = AB.GetA_z();
     EXPECT_EQ(a_z, 3.3);
 }
 
