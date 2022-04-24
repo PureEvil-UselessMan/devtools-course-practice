@@ -29,6 +29,17 @@ class Line {
     void SetA_z(float ta_z) { this->a_z = ta_z; }
 };
 
+class Plane {
+ private:
+    double a, b, c, d;
+
+ public:
+    Plane(double ta, double tb, double tc, double td):
+          a(ta), b(tb), c(tc), d(td) {}
+    Plane(const Plane& Tmp): a(Tmp.a), b(Tmp.b),
+                             c(Tmp.c), d(Tmp.d) {}
+};
+
 
 #endif  // MODULES_OLYNIN_A_CROSS_LINE_AND_PLANE_INCLUDE_CROSS_LINE_AND_PLANE_H_
 

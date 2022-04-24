@@ -82,3 +82,12 @@ TEST(Class_Line, Operator_set_a_z_correct) {
     AB.SetA_z(0.0);
     EXPECT_EQ(AB.GetA_z(), 0.0);
 }
+
+TEST(Class_Plane, Constructor_no_throw) {
+    EXPECT_NO_THROW(Plane(2.1, 0.3, 1.1, 4.0));
+}
+
+TEST(Class_Plane, Copy_constructor_no_throw) {
+    Plane a(2.1, 0.3, 1.1, 4.0);
+    EXPECT_NO_THROW(Plane b(a));
+}
