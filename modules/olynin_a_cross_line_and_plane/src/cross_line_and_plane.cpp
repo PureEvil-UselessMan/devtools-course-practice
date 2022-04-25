@@ -89,9 +89,9 @@ bool Space::IsPerpendicular(Line Sline, Plane Splane) {
     */
     if ((Sline.GetA_x() == 0 && Sline.GetA_y() == 0 && Sline.GetA_z() == 0) ||
         (Splane.GetA() == 0 && Splane.GetB() == 0 && Splane.GetC() == 0)) {
-            const std::string
-                error_type("The perpendicularity can't be determined");
-            throw error_type;
+        const std::string
+            error_type("The perpendicularity can't be determined");
+        throw error_type;
     }
     if (Relationship(Sline, Splane) == 1) {
         double accuracy = 0.000001;
