@@ -6,8 +6,6 @@
 #include <vector>
 
 #include "include/DHeap_application.h"
-#include "include/DHeap.h"
-
 
 std::string Application::Description() {
     return "The program is an implementation of the d-heap data structure"
@@ -60,7 +58,7 @@ std::string Application::getValue(std::vector<std::string> args,
     it = args.begin();
     it = find(args.begin(), args.end(), value);
     if (it != args.end()) {
-        it++;
+        ++it;
         if (it != args.end() && (*it)[0] != '-') {
             for (size_t i = 0; i < (*it).size(); i++) {
                 if ((*it) < "0" || (*it) > "9") {
@@ -86,7 +84,7 @@ std::string Application::getDec(std::vector<std::string> args,
 
     it = args.begin();
     it = find(args.begin(), args.end(), "-dec");
-    it++;
+    ++it;
     if (it != args.end() && (*it)[0] != '-') {
         for (size_t i = 0; i < (*it).size(); i++) {
             if ((*it) < "0" || (*it) > "9") {
@@ -102,7 +100,7 @@ std::string Application::getDec(std::vector<std::string> args,
     }
     *pos = atoi((*it).c_str());
 
-    it++;
+    ++it;
     if (it != args.end() && (*it)[0] != '-') {
         for (size_t i = 0; i < (*it).size(); i++) {
             if (((*it) < "0" || (*it) > "9") && (*it) != ".") {
