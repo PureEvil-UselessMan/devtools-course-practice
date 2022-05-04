@@ -3,3 +3,211 @@
 #############################################
 
 set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_run_program
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_run_program PROPERTIES
+    PASS_REGULAR_EXPRESSION "You don't enter any arguments."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_get_help
+    COMMAND ${APPLICATION} -help
+)
+set_tests_properties (${prefix}_get_help PROPERTIES
+    PASS_REGULAR_EXPRESSION "The program is an implementation of the d-heap data structure"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Create_my_DHeap_right
+    COMMAND ${APPLICATION} -DHeap 5 15 6
+)
+set_tests_properties (${prefix}_Create_my_DHeap_right PROPERTIES
+    PASS_REGULAR_EXPRESSION "success"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Create_my_DHeap_wrong_no_elements
+    COMMAND ${APPLICATION} -DHeap
+)
+set_tests_properties (${prefix}_Create_my_DHeap_wrong_no_elements PROPERTIES
+    PASS_REGULAR_EXPRESSION "No elements have been provided."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Create_my_DHeap_wrong_values_type
+    COMMAND ${APPLICATION} -DHeap 5 15 6 a
+)
+set_tests_properties (${prefix}_Create_my_DHeap_wrong_values_type PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong type of values."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Specify_d_my_DHeap_right
+    COMMAND ${APPLICATION} -DHeap 5 15 6 -d 3
+)
+set_tests_properties (${prefix}_Specify_d_my_DHeap_right PROPERTIES
+    PASS_REGULAR_EXPRESSION "success"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Specify_d_my_DHeap_wrong_1
+    COMMAND ${APPLICATION} -DHeap 5 15 6 -d 1
+)
+set_tests_properties (${prefix}_Specify_d_my_DHeap_wrong_1 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong format of heap option."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Specify_d_my_DHeap_wrong_format_value
+    COMMAND ${APPLICATION} -DHeap 5 15 6 -d a
+)
+set_tests_properties (${prefix}_Specify_d_my_DHeap_wrong_format_value PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong type of value."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Specify_d_my_DHeap_wrong_no_value
+    COMMAND ${APPLICATION} -DHeap 5 15 6 -d
+)
+set_tests_properties (${prefix}_Specify_d_my_DHeap_wrong_no_value PROPERTIES
+    PASS_REGULAR_EXPRESSION "No value have been provided."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Decrease_my_DHeap_right
+    COMMAND ${APPLICATION} -DHeap 5 15 6 -dec 1 4
+)
+set_tests_properties (${prefix}_Decrease_my_DHeap_right PROPERTIES
+    PASS_REGULAR_EXPRESSION "success"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Decrease_my_DHeap_wrong_no_first_value
+    COMMAND ${APPLICATION} -DHeap 5 15 6 -dec
+)
+set_tests_properties (${prefix}_Decrease_my_DHeap_wrong_no_first_value PROPERTIES
+    PASS_REGULAR_EXPRESSION "No value have been provided."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Decrease_my_DHeap_wrong_format_first_value
+    COMMAND ${APPLICATION} -DHeap 5 15 6 -dec a 2
+)
+set_tests_properties (${prefix}_Decrease_my_DHeap_wrong_format_first_value PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong type of value."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Decrease_my_DHeap_wrong_no_second_value
+    COMMAND ${APPLICATION} -DHeap 5 15 6 -dec 1
+)
+set_tests_properties (${prefix}_Decrease_my_DHeap_wrong_no_second_value PROPERTIES
+    PASS_REGULAR_EXPRESSION "Not enough values have been provided."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Decrease_my_DHeap_wrong_format_second_value
+    COMMAND ${APPLICATION} -DHeap 5 15 6 -dec 2 a
+)
+set_tests_properties (${prefix}_Decrease_my_DHeap_wrong_format_second_value PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong type of value."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Min_my_DHeap_right
+    COMMAND ${APPLICATION} -DHeap 5 15 6 -min
+)
+set_tests_properties (${prefix}_Min_my_DHeap_right PROPERTIES
+    PASS_REGULAR_EXPRESSION "min is 5."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Get_my_DHeap_right
+    COMMAND ${APPLICATION} -DHeap 5 15 6 -get
+)
+set_tests_properties (${prefix}_Get_my_DHeap_right PROPERTIES
+    PASS_REGULAR_EXPRESSION "[ 5.000000, 6.000000, 15.000000, ]"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Insert_Default_right
+    COMMAND ${APPLICATION} -ins 5 15 6
+)
+set_tests_properties (${prefix}_Insert_Default_right PROPERTIES
+    PASS_REGULAR_EXPRESSION "success"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Insert_Default_wrong_no_elements
+    COMMAND ${APPLICATION} -ins
+)
+set_tests_properties (${prefix}_Insert_Default_wrong_no_elements PROPERTIES
+    PASS_REGULAR_EXPRESSION "No elements have been provided."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Insert_Default_wrong_values_type
+    COMMAND ${APPLICATION} -ins 5 15 6 a
+)
+set_tests_properties (${prefix}_Insert_Default_wrong_values_type PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong type of values."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Decrease_Default_right
+    COMMAND ${APPLICATION} -dec 1 4
+)
+set_tests_properties (${prefix}_Decrease_Default_right PROPERTIES
+    PASS_REGULAR_EXPRESSION "success"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Decrease_Default_wrong_no_first_value
+    COMMAND ${APPLICATION} -dec
+)
+set_tests_properties (${prefix}_Decrease_Default_wrong_no_first_value PROPERTIES
+    PASS_REGULAR_EXPRESSION "No value have been provided."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Decrease_Default_wrong_format_first_value
+    COMMAND ${APPLICATION} -dec a 2
+)
+set_tests_properties (${prefix}_Decrease_Default_wrong_format_first_value PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong type of value."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Decrease_Default_wrong_no_second_value
+    COMMAND ${APPLICATION} -dec 1
+)
+set_tests_properties (${prefix}_Decrease_Default_wrong_no_second_value PROPERTIES
+    PASS_REGULAR_EXPRESSION "Not enough values have been provided."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Decrease_Default_wrong_format_second_value
+    COMMAND ${APPLICATION} -dec 2 a
+)
+set_tests_properties (${prefix}_Decrease_Default_wrong_format_second_value PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong type of value."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Min_Default_right
+    COMMAND ${APPLICATION} -min
+)
+set_tests_properties (${prefix}_Min_Default_right PROPERTIES
+    PASS_REGULAR_EXPRESSION "min is 13."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Get_Default_right
+    COMMAND ${APPLICATION} -get
+)
+set_tests_properties (${prefix}_Get_Default_right PROPERTIES
+    PASS_REGULAR_EXPRESSION "[ 13.000000, 16.000000, 31.000000, 41.000000, 41.000000, 51.000000, 100.000000, ]"
+    LABELS "${MODULE}")
