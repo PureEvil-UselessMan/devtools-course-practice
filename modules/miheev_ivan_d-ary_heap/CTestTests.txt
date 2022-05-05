@@ -77,6 +77,14 @@ set_tests_properties (${prefix}_Specify_d_my_DHeap_wrong_no_value PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
+    NAME ${prefix}_Specify_cap_my_DHeap_wrong_no_value
+    COMMAND ${APPLICATION} -DHeap 5 15 6 -cap
+)
+set_tests_properties (${prefix}_Specify_cap_my_DHeap_wrong_no_value PROPERTIES
+    PASS_REGULAR_EXPRESSION "No value have been provided."
+    LABELS "${MODULE}")
+
+add_test(
     NAME ${prefix}_Decrease_my_DHeap_right
     COMMAND ${APPLICATION} -DHeap 5 15 6 -dec 1 4
 )
